@@ -23,6 +23,7 @@
 - A cupcake spawns right in front of you
 - A permanent BB spawns in front of you
 - No lockers for 20 seconds
+- An extra toy chica will spawn for 10 seconds
 
 ### Cursed
 - Phantom chica blelelelelelele
@@ -45,9 +46,11 @@
 - The crowbar changes spots
 - Ennard aggro sound plays
 - Fuses swap between boxes
+- Lots of junk fuses will spawn
 
 ### Back Alley
 - Constant projector room alarm for 15 seconds
 - Projector puzzle resets
 - Spawn an extra scrap baby
 - Add an extra minigame enemy
+- A molten freddy will spawn in both vents
