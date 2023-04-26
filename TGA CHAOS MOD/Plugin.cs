@@ -46,7 +46,7 @@ public class Plugin : BaseUnityPlugin
         // ui size
         var scale = uiPanelRect.localScale;
         scale.x = eventText.textBounds.size.x;
-        uiPanelRect.localScale = scale;
+        // uiPanelRect.localScale = scale; // this breaks the whole gui and crashes the game lmao
         
         // timer
         eventTimer -= Time.deltaTime;
