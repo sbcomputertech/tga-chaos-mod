@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 namespace ChaosMod.Events;
 
-public class EventSystem
+public static class EventSystem
 {
     [CanBeNull] private static GameObject _eventManager;
 
@@ -25,11 +25,12 @@ public class EventSystem
     public static MonoBehaviour MakeEvent(Type comp)
     {
         var mb = EventManager.AddComponent(comp);
-        Plugin.Logging.LogInfo("Created event: " + mb.name);
+        Plugin.Logging.LogInfo("Created event: " + comp.Name);
         return (MonoBehaviour)mb;
     }
 
-    public static readonly Type[] Globals = { typeof(NormalizeMovement), typeof(DummyEvent) };
+    public static readonly Type[] Dummy = { typeof(DummyEvent) };
+    public static readonly Type[] Globals = { typeof(NormalizeMovement), typeof(ShortMode) };
     public static readonly Dictionary<Level, Type[]> PerLevels = new()
     {
         { Level.NIGHTMARES, new []{ typeof(DummyEvent) } }
