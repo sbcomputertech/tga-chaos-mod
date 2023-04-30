@@ -36,6 +36,9 @@
       <Reference Include="BepInEx.Unity">
         <HintPath>..\ReferenceAsms\Bepis\BepInEx.Unity.dll</HintPath>
       </Reference>
+      <Reference Include="DiscordRPC">
+        <HintPath>..\ReferenceAsms\Libs\DiscordRPC.dll</HintPath>
+      </Reference>
       <Reference Include="Mono.Security">
         <HintPath>..\ReferenceAsms\Game\Mono.Security.dll</HintPath>
       </Reference>

@@ -14,6 +14,7 @@ namespace ChaosMod;
 public class Plugin : BaseUnityPlugin
 {
     internal static ManualLogSource Logging;
+    private DiscordManager discord;
     private TextMeshProUGUI eventText;
     private float eventTimer;
     private MonoBehaviour currentEvent;
@@ -21,7 +22,7 @@ public class Plugin : BaseUnityPlugin
     private bool doNewEvent;
     private bool modEnabled;
     private bool hudCreated;
-    private float remnantAmount;
+    internal static float remnantAmount;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class Plugin : BaseUnityPlugin
 
     private void Start()
     {
+        SetupDiscordRpc();
         Logging.LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} is loaded! Made by {PluginInfo.PLUGIN_DEV}");
     }
 
@@ -89,6 +91,13 @@ public class Plugin : BaseUnityPlugin
             nextEvent = GetNewEvent();
             doNewEvent = false;
         }
+    }
+
+    private void SetupDiscordRpc()
+    {
+        var obj = new GameObject("ChaosModDiscordRpcManager");
+        DontDestroyOnLoad(obj);
+        discord = obj.AddComponent<DiscordManager>();
     }
 
     private void CreateHud()
