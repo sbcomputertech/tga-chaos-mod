@@ -16,7 +16,7 @@ public static class Utils
     public static T RandomFrom<T>(IEnumerable<T> src)
     {
         var enumerable = src.ToArray();
-        var num = Random.Range(0, enumerable.Count());
+        var num = Random.Range(0, enumerable.Length);
         return enumerable.ElementAt(num);
     }
 }
