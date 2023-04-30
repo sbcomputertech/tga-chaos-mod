@@ -3,53 +3,53 @@
 ### Global
 - Normalize movement
 - Constant boop noise
-- Short mode (lose 50% height)
+- Short mode (forced crouching)
 - Coconut malled
 - Slow down speed
 - Tip manager spawns in front of you
+- No interaction
 
 ### Nightmares
 - Reset freddy puzzle
 - Re-roll safe code
 - Flashlight disabled
-- 10 second nightmarrione
-- 5 freddles spawn in
+- 10 freddles spawn in
 
 ### Toys
 - Symbol code randomly changes
 - Freddy loses 20% winding
-- All mango spots drop one
+- A mango spawns at every spot
 - Chica gets a 40% speed boost
 - A cupcake spawns right in front of you
 - A permanent BB spawns in front of you
-- No lockers for 20 seconds
-- An extra toy chica will spawn for 10 seconds
+- No lockers
+- An extra toy chica will spawn temporarily
 
 ### Cursed
 - Phantom chica blelelelelelele
-- Cameras stop working for 20 seconds
-- A random door loses 20% power
-- Freddy teleports back to the start of the minigame
-- Phantom foxy jumpscares you (wherever you are)
+- Cameras stop working
+- A random door loses 50% power
+- Slow minigame freddy
+- Phantom foxy jumpscares you
 - Springtrap is invisible on cams
 
 ### Funtimes
 - All baby parts get broken
-- Freddy and foxy have their controls disabled for 10 seconds
-- Constant wubwub for 10 seconds
+- Freddy and foxy have their controls disabled
+- Constant wubwub
 - 6 balloras come
-- Monitors turn off for 10 seconds
+- Monitors turn off
 
 ### Lost Media
-- Ennard knows your precise location for 10 seconds
+- Ennard knows your precise location
 - The generator will turn back off
 - The crowbar changes spots
 - Ennard aggro sound plays
-- Fuses swap between boxes
+- Fuses pop out
 - Lots of junk fuses will spawn
 
 ### Back Alley
-- Constant projector room alarm for 15 seconds
+- Constant projector room alarm
 - Projector puzzle resets
 - Spawn an extra scrap baby
 - Add an extra minigame enemy
