@@ -13,6 +13,7 @@ public class Level
 	public static readonly Level LOST_MEDIA = new("Lost Media", 6);
 	public static readonly Level BACK_ALLEY = new("Back Alley", 7);
 	public static readonly Level BASEMENT = new("Basement", 8);
+	public static readonly Level MIND = new("Mind", 9);
 	public readonly string name;
 	public readonly int spawnVar;
 
@@ -34,7 +35,8 @@ public class Level
 			5 => ACCIDENT,
 			6 => LOST_MEDIA,
 			7 => BACK_ALLEY,
-			_ => BASEMENT
+			8 => BASEMENT,
+			_ => MIND
 		};
 	}
 
