@@ -24,6 +24,7 @@
 - A permanent BB spawns in front of you
 - No lockers
 - An extra toy chica will spawn temporarily
+- All gears fall out of the box onto the floor
 
 ### Cursed
 - Phantom chica blelelelelelele
