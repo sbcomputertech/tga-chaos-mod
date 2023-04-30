@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using ChaosMod.Events;
@@ -23,6 +25,10 @@ public class Plugin : BaseUnityPlugin
     private bool modEnabled;
     private bool hudCreated;
     internal static float remnantAmount;
+    internal static AssetBundle modAssets;
+
+    private static string modAssetBundlePath =>
+        Path.Join(Paths.PluginPath, "chaos-modassets");
 
     private void Awake()
     {
@@ -30,6 +36,7 @@ public class Plugin : BaseUnityPlugin
         harmony.PatchAll();
         Logging = Logger;
         modEnabled = false;
+        modAssets = AssetBundle.LoadFromFile(modAssetBundlePath);
     }
 
     private void Start()

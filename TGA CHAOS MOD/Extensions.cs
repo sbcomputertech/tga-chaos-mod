@@ -6,6 +6,10 @@ public static class Extensions
     {
         return o.GetComponent<RectTransform>();
     }
+    public static RectTransform GetRectTransform(this Behaviour o)
+    {
+        return o.GetComponent<RectTransform>();
+    }
 
     public static void EventSetActive(this MonoBehaviour mb, bool active)
     {
