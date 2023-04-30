@@ -21,6 +21,7 @@ public class Plugin : BaseUnityPlugin
     private bool doNewEvent;
     private bool modEnabled;
     private bool hudCreated;
+    private float remnantAmount;
 
     private void Awake()
     {
@@ -60,8 +61,14 @@ public class Plugin : BaseUnityPlugin
         }
         else
         {
+            eventText.text = "Current event: ";
+            if(currentEvent == null) { eventText.text += "None"; }
+            else { eventText.text += currentEvent; }
+            
             var eventStr = eventTimer < 5 ? nextEvent.ToString() : "???";
-            eventText.text = $"Time until next event: {Math.Round(eventTimer, 1)}s - {eventStr}";
+            eventText.text += $"  |  Time until next event: {Math.Round(eventTimer, 1)}s - {eventStr}";
+
+            eventText.text += $"  |  Remnant: {remnantAmount}";
         }
 
         // timer
