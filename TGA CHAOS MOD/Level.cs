@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace ChaosMod;
 
@@ -25,6 +26,15 @@ public class Level
 
 	private static Level GetLevelBySpawnVar(float spawnVar)
 	{
+		// Plugin.Logging.LogInfo("SpawnVar: " + spawnVar);
+		
+		// detect mind spawnvar weirdness:
+		if (Object.FindObjectsOfType<Mind_MusicManager>().Any() && spawnVar is < 9f and >= 8f)
+		{
+			Plugin.Logging.LogMessage("Detected mind spawnvar weirdness! Setting spawn to 9");
+			PlayerPrefs.SetFloat("spawn", 9f);
+		}
+		
 		return spawnVar switch
 		{
 			0 => LOBBY,
