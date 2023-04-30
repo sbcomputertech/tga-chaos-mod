@@ -1,4 +1,6 @@
-﻿using BepInEx;
+﻿using System;
+using System.Collections.Generic;
+using BepInEx;
 using BepInEx.Logging;
 using ChaosMod.Events;
 using HarmonyLib;
@@ -13,29 +15,30 @@ public class Plugin : BaseUnityPlugin
 {
     internal static ManualLogSource Logging;
     private TextMeshProUGUI eventText;
-    private RectTransform uiPanelRect;
     private float eventTimer;
     private MonoBehaviour currentEvent;
     private MonoBehaviour nextEvent;
     private bool doNewEvent;
+    private bool modEnabled;
+    private bool hudCreated;
 
     private void Awake()
     {
         var harmony = new Harmony(PluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
         Logging = Logger;
+        modEnabled = false;
     }
 
     private void Start()
     {
-        CreateHud();
         Logging.LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} is loaded! Made by {PluginInfo.PLUGIN_DEV}");
     }
 
     private static MonoBehaviour GetNewEvent()
     {
         var level = Level.GetCurrentLevel();
-        var levelEvents = EventSystem.PerLevels[level];
+        var levelEvents = EventSystem.PerLevels.GetValueOrDefault(level, EventSystem.Dummy);
         var global = Utils.WeightedRandomBool(EventSystem.Globals.Length, levelEvents.Length);
         var type = Utils.RandomFrom(global ? EventSystem.Globals : levelEvents);
         return EventSystem.MakeEvent(type);
@@ -43,11 +46,24 @@ public class Plugin : BaseUnityPlugin
 
     private void Update()
     {
-        // ui size
-        var scale = uiPanelRect.localScale;
-        scale.x = eventText.textBounds.size.x;
-        // uiPanelRect.localScale = scale; // this breaks the whole gui and crashes the game lmao
+        // enable
+        if (Input.GetKeyDown(KeyCode.M) && !modEnabled)
+        {
+            modEnabled = true;
+        }
+        if(!modEnabled) return;
         
+        // hud
+        if(!hudCreated)
+        {
+            CreateHud();
+        }
+        else
+        {
+            var eventStr = eventTimer < 5 ? nextEvent.ToString() : "???";
+            eventText.text = $"Time until next event: {Math.Round(eventTimer, 1)}s - {eventStr}";
+        }
+
         // timer
         eventTimer -= Time.deltaTime;
         if (eventTimer < 0)
@@ -60,50 +76,44 @@ public class Plugin : BaseUnityPlugin
         if (doNewEvent)
         {
             currentEvent.EventSetActive(false);
+            Destroy(currentEvent);
             currentEvent = nextEvent;
             currentEvent.EventSetActive(true);
             nextEvent = GetNewEvent();
+            doNewEvent = false;
         }
-        
-        // text
-        var eventStr = eventTimer < 5 ? nextEvent.ToString() : "???";
-        eventText.text = $"Time until next event: {eventTimer} - {eventStr}";
     }
 
     private void CreateHud()
     {
-        var obj = new GameObject("ChaosModEventHud");
-        DontDestroyOnLoad(obj);
-        
-        var canvas = obj.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceCamera;
-        canvas.worldCamera = Camera.main;
-
-        var panelSize = new Vector2(600, 200);
+        var obj = FindObjectOfType<Achievements_CanvasManager>();
+        Logging.LogInfo("Using achievement manager's canvas for event hud!");
 
         var panelObj = new GameObject("Panel");
         panelObj.transform.SetParent(obj.transform, false);
+        panelObj.layer = 5;
         var panelImage = panelObj.AddComponent<Image>();
         panelImage.color = Color.gray; 
         var panelRect = panelObj.GetRectTransform();
-        panelRect.anchorMin = new Vector2(0, 1);
-        panelRect.anchorMax = new Vector2(0, 1);
-        panelRect.sizeDelta = panelSize;
+        panelRect.anchorMin = new Vector2(-1, -1);
+        panelRect.anchorMax = new Vector2(1, -1);
+        panelObj.transform.localPosition = new Vector3(0, 500, 0);
 
         var textObj = new GameObject("Text");
         textObj.transform.SetParent(panelRect, false);
+        textObj.layer = 5;
         var tmp = textObj.AddComponent<TextMeshProUGUI>();
         tmp.SetText("Waiting for level...");
         tmp.color = Color.black;
-        tmp.alignment = TextAlignmentOptions.Left;
+        tmp.alignment = TextAlignmentOptions.Center;
         tmp.enableWordWrapping = false;
+        tmp.autoSizeTextContainer = true;
         var textRect = textObj.GetRectTransform();
-        textRect.anchorMin = textRect.anchorMax = new Vector2(1, 1);
-        textRect.localPosition = new Vector3(100, -50, 0);
+        textRect.anchorMin = textRect.anchorMax = new Vector2(-1, 0);
+        textRect.localPosition = new Vector3(0, 0, 0);
         
         eventText = tmp;
-        uiPanelRect = panelRect;
-
+        hudCreated = true;
         Logging.LogInfo("Created EventHud!");
     }
 }
