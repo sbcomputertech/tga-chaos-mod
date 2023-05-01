@@ -56,6 +56,8 @@ public class Plugin : BaseUnityPlugin
 
     private void Update()
     {
+        GetGlobalObjectReferences();
+        
         // enable
         if (Input.GetKeyDown(KeyCode.M) && !modEnabled)
         {
@@ -88,16 +90,27 @@ public class Plugin : BaseUnityPlugin
             eventTimer = 10;
         }
         
+        // event debug key
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            doNewEvent = true;
+        }
+        
         // new event
         if (doNewEvent)
         {
             currentEvent.EventSetActive(false);
-            Destroy(currentEvent);
+            Destroy(currentEvent, 0.2f);
             currentEvent = nextEvent;
             currentEvent.EventSetActive(true);
             nextEvent = GetNewEvent();
             doNewEvent = false;
         }
+    }
+
+    private void GetGlobalObjectReferences()
+    {
+        GlobalObjectReferences.tipManager ??= FindObjectOfType<PanelTips_animations>().gameObject;
     }
 
     private void SetupDiscordRpc()

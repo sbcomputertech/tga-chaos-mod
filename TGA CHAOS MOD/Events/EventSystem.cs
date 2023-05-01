@@ -30,7 +30,12 @@ public static class EventSystem
     }
 
     public static readonly Type[] Dummy = { typeof(DummyEvent) };
-    public static readonly Type[] Globals = { typeof(NormalizeMovement), typeof(ShortMode), typeof(ConstantBoop), typeof(CoconutMalled) };
+    
+    public static readonly Type[] Globals = { 
+        typeof(NormalizeMovement), typeof(ShortMode), typeof(ConstantBoop),
+        typeof(CoconutMalled), typeof(SlowPlayer), typeof(HelpfulTip), typeof(NoInteraction)
+    };
+    
     public static readonly Dictionary<Level, Type[]> PerLevels = new()
     {
         { Level.NIGHTMARES, new []{ typeof(DummyEvent) } }
