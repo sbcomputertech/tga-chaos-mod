@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ChaosMod;
 
@@ -15,6 +16,7 @@ public class Level
 	public static readonly Level BACK_ALLEY = new("Back Alley", 7);
 	public static readonly Level BASEMENT = new("Basement", 8);
 	public static readonly Level MIND = new("Mind", 9);
+	public static readonly Level MENUS = new("Menus", 99);
 	public readonly string name;
 	public readonly int spawnVar;
 
@@ -50,5 +52,10 @@ public class Level
 		};
 	}
 
-	public static Level GetCurrentLevel() => GetLevelBySpawnVar(PlayerPrefs.GetFloat("spawn"));
+	public static Level GetCurrentLevel()
+	{
+		var sceneName = SceneManager.GetActiveScene().name;
+		if (sceneName.Contains("Loading") || sceneName.Contains("Menu")) return MENUS;
+		return GetLevelBySpawnVar(PlayerPrefs.GetFloat("spawn"));
+	}
 }
