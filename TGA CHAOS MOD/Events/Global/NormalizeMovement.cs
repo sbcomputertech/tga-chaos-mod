@@ -8,6 +8,7 @@ public class NormalizeMovement : MonoBehaviour
     public void E_Disable()
     {
         PatchPlayerMove.doPatch = false;
+        Destroy(this);
     }
 
     public void E_Enable()

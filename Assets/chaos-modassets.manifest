@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 1208609421
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 91bfba671c0843619491ca7a05527d43
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bf9e172e9e0bd8910ca748ed8b246d5f
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/TGA chaos mod/coconut deepfry.jpg
+- Assets/TGA chaos mod/Hippo01.wav
+- Assets/TGA chaos mod/hippo_2.png
+- Assets/TGA chaos mod/phone guyyyyyy.ogg
+- Assets/TGA chaos mod/Hippo04.wav
+- Assets/TGA chaos mod/coconut normal.jpg
+- Assets/TGA chaos mod/boop.ogg
+- Assets/TGA chaos mod/coconut mall.ogg
+- Assets/TGA chaos mod/bb.ogg
+- Assets/TGA chaos mod/hippo_3.png
+- Assets/TGA chaos mod/ping.wav
+- Assets/TGA chaos mod/hippo_1.png
+- Assets/TGA chaos mod/Hippo03.wav
+- Assets/TGA chaos mod/Hippo02.wav
+Dependencies: []

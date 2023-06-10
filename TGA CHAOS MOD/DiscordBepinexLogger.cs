@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using BepInEx.Logging;
 using DiscordRPC.Logging;
-using HarmonyLib;
 using LogLevel = DiscordRPC.Logging.LogLevel;
 
 namespace ChaosMod;
@@ -14,7 +12,7 @@ public class DiscordBepinexLogger : ILogger
     public DiscordBepinexLogger(LogLevel level)
     {
         Level = level;
-        source = new ManualLogSource("Chaos Mod.DiscordRPC");
+        source = new ManualLogSource("ChaosDiscordRPC");
     }
     
     public void Trace(string message, params object[] args)

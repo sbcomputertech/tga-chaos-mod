@@ -13,6 +13,8 @@ public class ShortMode : MonoBehaviour
     {
         active = false;
         moveRef.crawl_obligated = false;
+        moveRef.crawling = false;
+        Destroy(this);
     }
 
     public void E_Enable()

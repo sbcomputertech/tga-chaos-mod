@@ -15,6 +15,7 @@ public class SlowPlayer : MonoBehaviour
     public void E_Disable()
     {
         doSlow = false;
+        Destroy(this);
     }
     
     public override string ToString() => "Tired Legs";

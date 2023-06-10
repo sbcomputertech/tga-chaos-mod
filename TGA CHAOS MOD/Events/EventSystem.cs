@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ChaosMod.Events.Global;
 using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
+
+using ChaosMod.Events.Global;
+using ChaosMod.Events.Nightmares;
 
 namespace ChaosMod.Events;
 
@@ -11,7 +13,7 @@ public static class EventSystem
 {
     [CanBeNull] private static GameObject _eventManager;
 
-    internal static GameObject EventManager
+    private static GameObject EventManager
     {
         get
         {
@@ -32,12 +34,12 @@ public static class EventSystem
     public static readonly Type[] Dummy = { typeof(DummyEvent) };
     
     public static readonly Type[] Globals = { 
-        typeof(NormalizeMovement), typeof(ShortMode), typeof(ConstantBoop),
+        typeof(NormalizeMovement), typeof(ShortMode), typeof(ConstantBoop), typeof(MrHippo),
         typeof(CoconutMalled), typeof(SlowPlayer), typeof(HelpfulTip), typeof(NoInteraction)
     };
     
     public static readonly Dictionary<Level, Type[]> PerLevels = new()
     {
-        { Level.NIGHTMARES, new []{ typeof(DummyEvent) } }
+        { Level.NIGHTMARES, new []{ typeof(NoTorch) } }
     };
 }

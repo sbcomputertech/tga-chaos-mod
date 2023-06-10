@@ -58,4 +58,6 @@ public class Level
 		if (sceneName.Contains("Loading") || sceneName.Contains("Menu")) return MENUS;
 		return GetLevelBySpawnVar(PlayerPrefs.GetFloat("spawn"));
 	}
+
+	public static bool IsInMenus => GetCurrentLevel() == MENUS;
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ChaosMod.Events.Global;
+namespace ChaosMod.Events;
 
 public class DummyEvent : MonoBehaviour
 {
@@ -14,5 +14,5 @@ public class DummyEvent : MonoBehaviour
         Debug.Log("Dummy event disabled!");
     }
     
-    public override string ToString() => "Dummy Event";
+    public override string ToString() => Plugin.DEBUG ? "Dummy Event" : "THIS IS A BUG";
 }

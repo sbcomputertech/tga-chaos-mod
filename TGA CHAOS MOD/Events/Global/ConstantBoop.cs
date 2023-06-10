@@ -18,12 +18,13 @@ public class ConstantBoop : MonoBehaviour
     public void E_Disable()
     {
         play = false;
+        Destroy(this);
     }
 
     private void Update()
     {
         if(!play) return;
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        AudioSource.PlayClipAtPoint(clip, player.position);
     }
 
     public override string ToString() => "Boooooooooop";

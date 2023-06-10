@@ -39,6 +39,9 @@
       <Reference Include="DiscordRPC">
         <HintPath>..\ReferenceAsms\Libs\DiscordRPC.dll</HintPath>
       </Reference>
+      <Reference Include="DOTween">
+        <HintPath>..\ReferenceAsms\Libs\DOTween.dll</HintPath>
+      </Reference>
       <Reference Include="Mono.Security">
         <HintPath>..\ReferenceAsms\Game\Mono.Security.dll</HintPath>
       </Reference>

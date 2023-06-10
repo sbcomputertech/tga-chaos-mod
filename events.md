@@ -8,12 +8,12 @@
 - [x] Slow down speed
 - [x] Tip manager spawns in front of you
 - [x] No interaction
+- [x] Mr. Hippo
 
 ### Nightmares
 - [ ] Reset freddy puzzle
 - [ ] Re-roll safe code
-- [ ] Flashlight disabled
-- [ ] 10 freddles spawn in
+- [x] Flashlight disabled
 
 ### Toys
 - [ ] Symbol code randomly changes

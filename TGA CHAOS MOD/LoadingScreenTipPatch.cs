@@ -10,7 +10,7 @@ public static class LoadingScreenTipPatch
         var t = $"{PluginInfo.PLUGIN_NAME} v{PluginInfo.PLUGIN_VERSION}\n\n";
         t += "If the mod doesn't activate properly by itself, press M to start it.\n";
         t += "(it will only auto-activate from the start of Lobby as of v1.0.0)\n\n";
-        t += "Make sure to collect any remnant orbs you see in the levels!\n";
+        t += "Make sure to collect any remnant orbs you see!\n";
         __instance.text.eng = t;
     }
 }
