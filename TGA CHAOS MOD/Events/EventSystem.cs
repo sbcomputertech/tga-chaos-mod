@@ -6,6 +6,7 @@ using Object = UnityEngine.Object;
 
 using ChaosMod.Events.Global;
 using ChaosMod.Events.Nightmares;
+using ChaosMod.Events.Toys;
 
 namespace ChaosMod.Events;
 
@@ -38,6 +39,7 @@ public static class EventSystem
     
     public static readonly Dictionary<Level, Type[]> PerLevels = new()
     {
-        { Level.NIGHTMARES, new []{ typeof(NoTorch), typeof(ScramblePuzzle) } }
+        { Level.NIGHTMARES, new []{ typeof(NoTorch), typeof(ScramblePuzzle) } },
+        { Level.TOYS, new [] { typeof(MusicBoxFail) } }
     };
 }

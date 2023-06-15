@@ -16,7 +16,7 @@
 
 ### Toys
 - [ ] Symbol code randomly changes
-- [ ] Freddy loses 20% winding
+- [x] Freddy loses 30% winding
 - [ ] A mango spawns at every spot
 - [ ] Chica gets a 40% speed boost
 - [ ] A cupcake spawns right in front of you
