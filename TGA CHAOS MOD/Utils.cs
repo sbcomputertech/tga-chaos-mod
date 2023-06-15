@@ -13,7 +13,7 @@ public static class Utils
     public static bool WeightedRandomBool(int c1, int c2)
     {
         var num = Random.Range(0f, c1 + c2);
-        return num < c1;
+        return num <= c1;
     }
 
     public static T RandomFrom<T>(IEnumerable<T> src)

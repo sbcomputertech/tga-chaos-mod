@@ -37,6 +37,7 @@ public class Plugin : BaseUnityPlugin
     {
         var harmony = new Harmony(PluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
+        
         Logging = Logger;
         modEnabled = false;
         modAssets = AssetBundle.LoadFromFile(modAssetBundlePath);
@@ -47,7 +48,7 @@ public class Plugin : BaseUnityPlugin
     private void Start()
     {
         SetupDiscordRpc();
-        Logging.LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} is loaded! Made by {PluginInfo.PLUGIN_DEV}");
+        Logging.LogInfo($"{PluginInfo.PLUGIN_NAME} has initialized! Developed by {PluginInfo.PLUGIN_DEV}");
     }
 
     private static MonoBehaviour GetNewEvent()
@@ -58,7 +59,7 @@ public class Plugin : BaseUnityPlugin
         }
         
         var level = Level.GetCurrentLevel();
-        var levelEvents = EventSystem.PerLevels.GetValueOrDefault(level, EventSystem.Dummy);
+        var levelEvents = EventSystem.PerLevels.GetValueOrDefault(level, Array.Empty<Type>());
         var global = Utils.WeightedRandomBool(EventSystem.Globals.Length, levelEvents.Length);
         var type = Utils.RandomFrom(global ? EventSystem.Globals : levelEvents);
         return EventSystem.MakeEvent(type);

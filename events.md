@@ -11,8 +11,7 @@
 - [x] Mr. Hippo
 
 ### Nightmares
-- [ ] Reset freddy puzzle
-- [ ] Re-roll safe code
+- [x] Reset freddy puzzle & re-roll safe code
 - [x] Flashlight disabled
 
 ### Toys
